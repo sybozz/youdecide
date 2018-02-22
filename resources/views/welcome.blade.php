@@ -79,15 +79,15 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    YouDecide
                 </div>
 
                 <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                    <a href="#">Documentation</a>
+                    <a href="#">About</a>
+                    <a href="#">Manager</a>
+                    <a href="#">Admin</a>
+                    <a href="https://github.com/sybozz/youdecide">GitHub</a>
                 </div>
             </div>
         </div>
