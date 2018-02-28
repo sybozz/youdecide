@@ -50,6 +50,7 @@ Route::post('/profile/picture/upload', 'ProfileController@profilePictureUpload')
 Route::post('/profile/update', 'ProfileController@profileInfoUpdate');
 
 Route::get('/new-proposal', 'ProposalController@createProposal');
+Route::get('/create-debate', 'DebateController@createDebate');
 
 
 

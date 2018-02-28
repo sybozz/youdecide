@@ -35,4 +35,8 @@ class ProfileController extends Controller
 
         return redirect()->back()->with('msg', 'Profile picture updated successfully.');
     }
+
+
+
+
 }

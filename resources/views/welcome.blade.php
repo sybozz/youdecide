@@ -69,7 +69,7 @@
             @if (Route::has('login'))
                 <div class="top-right links">
                     @if (Auth::check())
-                        <a href="{{ url('/home') }}">Home</a>
+                        <a href="{{ url('/') }}">Home</a>
                     @else
                         <a href="{{ url('/login') }}">Login</a>
                         <a href="{{ url('/register') }}">Register</a>
@@ -83,10 +83,10 @@
                 </div>
 
                 <div class="links">
-                    <a href="#">Documentation</a>
-                    <a href="{{ url('/proposals') }}">Website</a>
-                    <a href="{{ url('/how-it-works') }}">Guide</a>
                     <a href="#">About</a>
+                    <a href="#">Documentation</a>
+                    <a href="{{ url('/how-it-works') }}">Guide</a>
+                    <a href="{{ url('/proposals') }}">Website</a>
                     <a href="#">Manager</a>
                     <a href="#">Admin</a>
                     <a href="https://github.com/sybozz/youdecide">GitHub</a>
