@@ -4,6 +4,7 @@
         <div class="row">
             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-4">
                 <ul class="top-nav nav-left">
+                    <li><a href="{{ url('/') }}">Home</a>
                     <li><a href="{{ url('/proposals') }}">Proposals</a>
                     </li>
                     <li class="hidden-xs"><a href="{{ url('/debates') }}">Debates</a>
