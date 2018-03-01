@@ -15,11 +15,11 @@
                         <div class="panel-heading">
                             <!-- Tabs -->
                             <ul class="nav panel-tabs">
-                                <li> <a data-toggle="tab" href="#tab1"><i class="icofont icon-ribbon"></i><span class="hidden-xs">Recent Questions</span></a>
+                                <li> <a data-toggle="tab" href="#tab1"><i class="icofont icon-ribbon"></i><span class="hidden-xs">Recent Debates</span></a>
                                 </li>
                                 <li> <a data-toggle="tab" href="#tab2"><i class="icofont icon-layers"></i><span class="hidden-xs">Popular Responses</span></a>
                                 </li>
-                                <li class="active"> <a data-toggle="tab" href="#tab3"><i class="icofont icon-global"></i><span class="hidden-xs">Recently Answered</span></a>
+                                <li class="active"> <a data-toggle="tab" href="#tab3"><i class="icofont icon-global"></i><span class="hidden-xs">Recent proposals</span></a>
                                 </li>
                                 <li> <a data-toggle="tab" href="#tab4"><i class="icofont icon-linegraph"></i><span class="hidden-xs">No answers</span></a>
                                 </li>
