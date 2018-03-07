@@ -20,6 +20,7 @@ class CreateProposalsTable extends Migration
             $table->string('tag');
             $table->text('description');
             $table->boolean('status');
+            $table->integer('created_by');
             $table->timestamps();
         });
     }

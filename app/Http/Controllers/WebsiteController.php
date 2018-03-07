@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class WebsiteController extends Controller
 {
@@ -17,10 +19,38 @@ class WebsiteController extends Controller
     }
 
 
-    public function index()
+    public function loadProposals()
     {
-        return view('website.proposalList');
+        $userInfo = DB::table('users')->where('id', Auth::user()->id)->first();
+        $proposals = DB::table('proposals')
+            ->join('users', 'proposals.created_by', '=', 'users.id')
+            ->select('proposals.*', 'users.profilePicture')
+            ->orderBy('created_at', 'desc')
+            ->get();
+
+        return view('website.proposalList', [
+            'userInfo'=>$userInfo,
+            'proposals'=>$proposals
+        ]);
     }
+
+    public function loadDebates()
+    {
+        $userInfo = DB::table('users')->where('id', Auth::user()->id)->first();
+        return view('website.debateList', [
+            'userInfo'=>$userInfo
+        ]);
+    }
+
+    public function loadResults()
+    {
+        $userInfo = DB::table('users')->where('id', Auth::user()->id)->first();
+        return view('website.resultList', [
+            'userInfo'=>$userInfo,
+        ]);
+    }
+
+
 
     public function proposalDetail()
     {

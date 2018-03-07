@@ -15,7 +15,7 @@
             </div>
             <div class="col-lg-8 col-md-8 col-sm-6 col-xs-8">
                 <ul class="top-nav nav-right">
-                    @if( ! Auth::user() )
+                    @if( Auth::guest() )
                     <li><a href="{{ url('/login') }}"><i class="fa fa-lock" aria-hidden="true"></i>Login</a>
                     </li>
                     <li><a href="{{ url('/register') }}"><i class="fa fa-user-plus" aria-hidden="true"></i>Signup</a>
@@ -23,7 +23,7 @@
                     @else
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown" data-animations="fadeInUp">
-                            <img class="img-circle resize" alt="" src="{{ asset('website') }}/images/1.jpg">
+                            <img class="img-circle resize" alt="" src="{{ asset('uploads/profile'.'/'.$userInfo->profilePicture) }}">
                             <span class="hidden-xs small-padding">
 								<span>{{ Auth::user()->name }}</span>
 							 <i class="fa fa-caret-down"></i>

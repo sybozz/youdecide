@@ -30,11 +30,18 @@ Route::get('/home', 'HomeController@index')->name('home');
  *  -
  * */
 
+//website
+Route::get('/proposals', 'WebsiteController@loadProposals');
+Route::get('/debates', 'WebsiteController@loadDebates');
+Route::get('/results', 'WebsiteController@loadResults');
+
+
 // Listing - list of proposals
 Route::get('/how-it-works', function () {
     return view('website.guide');
 });
-Route::get('/proposals', 'WebsiteController@index');
+
+//Route::get('proposal/{id}', 'WebsiteController@proposalById');
 //Route::get('/login', 'WebsiteController@login');
 //Route::get('/register', 'WebsiteController@register');
 Route::get('/proposal', 'WebsiteController@proposalDetail');
@@ -43,14 +50,26 @@ Route::get('/proposal', 'WebsiteController@proposalDetail');
 /*
  * User Profile
  * */
-Route::get('/timeline', 'ProfileController@timeline');
+Route::get('/timeline', 'ProfileController@profileTimeline');
 Route::get('/profile-setting', 'ProfileController@profileSetting');
 Route::get('/my-proposals', 'ProfileController@proposalList');
 Route::post('/profile/picture/upload', 'ProfileController@profilePictureUpload');
-Route::post('/profile/update', 'ProfileController@profileInfoUpdate');
+Route::post('profile/details/update', 'ProfileController@profileDetailsUpdate');
 
 Route::get('/new-proposal', 'ProposalController@createProposal');
+Route::post('proposal/submit', 'ProposalController@storeProposal');
 Route::get('/create-debate', 'DebateController@createDebate');
+
+
+
+
+
+/*
+ *
+ * Manager routes
+ * */
+Route::get('/manager/login', 'ManagerController@index');
+Route::get('/manager/pending/proposal', 'ManagerController@pendingProposals');
 
 
 

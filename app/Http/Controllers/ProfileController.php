@@ -3,17 +3,21 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class ProfileController extends Controller
 {
-    public function timeline()
+    public function profileTimeline()
     {
-        return view('user.timeline');
+        $userInfo = DB::table('users')->where('id', Auth::user()->id)->first();
+        return view('user.timeline', ['userInfo'=>$userInfo]);
     }
 
     public function profileSetting()
     {
-        return view('user.profileSetting');
+        $userInfo = DB::table('users')->where('id', Auth::user()->id)->first();
+        return view('user.profileSetting', ['userInfo'=>$userInfo]);
     }
     public function profileInfoUpdate(Request $request)
     {
@@ -23,20 +27,42 @@ class ProfileController extends Controller
 
     public function proposalList()
     {
-        return view('user.myProposals');
+        $userInfo = DB::table('users')->where('id', Auth::user()->id)->first();
+        return view('user.myProposals', ['userInfo'=>$userInfo]);
     }
 
     public function profilePictureUpload(Request $request)
     {
+        $getUserId = $request->get('userId');
 
+        $this->validate($request, [
+            'profilePicture' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048'
+        ]);
 
-        $file = $request->file('profilePicture');
-        $file->move('uploads/user', $file->getClientOriginalName());
+        $getImageFile = $request->file('profilePicture');
+        $imageFileName = time().'.'.$getImageFile->getClientOriginalName();
 
-        return redirect()->back()->with('msg', 'Profile picture updated successfully.');
+        $getImageFile->move('uploads/profile/', $imageFileName);
+
+        DB::table('users')->where('id', $getUserId)
+            ->update(['profilePicture' => $imageFileName]);
+
+        return redirect()->back()->with('msg', 'Image uploaded successfully.');
     }
 
 
+    public function profileDetailsUpdate(Request $request)
+    {
+        DB::table('users')->where('id', $request
+            ->get('userId'))
+            ->update([
+                'name'=> $request->get('name'),
+                'profession'=> $request->get('profession'),
+                'bio'=> $request->get('bio'),
+            ]);
+
+        return redirect()->back()->with('msg', 'Profile info updated successfully.');
+    }
 
 
 }

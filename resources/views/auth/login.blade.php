@@ -51,7 +51,7 @@
 
 
                             <div class="form-group">
-                                <div class="row">
+                                <div class="">
                                     <div class="col-xs-6">
                                         <div class="checkbox flat-checkbox">
                                             <label>
