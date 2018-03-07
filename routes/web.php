@@ -41,7 +41,6 @@ Route::get('/how-it-works', function () {
     return view('website.guide');
 });
 
-//Route::get('proposal/{id}', 'WebsiteController@proposalById');
 //Route::get('/login', 'WebsiteController@login');
 //Route::get('/register', 'WebsiteController@register');
 Route::get('/proposal', 'WebsiteController@proposalDetail');
